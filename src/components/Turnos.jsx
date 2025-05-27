@@ -177,19 +177,24 @@ export default function Turnos() {
                 const turno = turnos[persona]?.[dia - 1] || TURNO_L;
                 return (
                   <td
-                    key={dia}
-                    onClick={() => cambiarTurno(persona, dia)}
-                    style={{
-                      backgroundColor: colorTurno(turno),
-                      textAlign: "center",
-                      fontWeight: "bold",
-                      cursor: "pointer",
-                      userSelect: "none",
-                    }}
-                    title={`Click para cambiar turno (actual: ${turno})`}
-                  >
-                    {turno}
-                  </td>
+  key={dia}
+  onClick={() => cambiarTurno(persona, dia)}
+  style={{
+    backgroundColor: colorTurno(turno),
+    textAlign: "center",
+    fontWeight: "bold",
+    cursor: "pointer",
+    userSelect: "none",
+    fontFamily: "monospace",       // fuente neutral sin autocorrección
+    fontSize: "16px",
+    textTransform: "none",         // evita que se conviertan a mayúsculas/minúsculas
+    WebkitTextSecurity: "none",    // evita interpretaciones raras
+  }}
+  title={`Click para cambiar turno (actual: ${turno})`}
+>
+  {turno}
+</td>
+
                 );
               })}
             </tr>
